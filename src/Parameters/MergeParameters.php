@@ -8,7 +8,7 @@ class MergeParameters {
   public string $dataSourceType = Constants::JSON_TYPE;
   public bool $sequence = false;
   public bool $parseColumns = false;
-  public bool $strict = false;
+  public bool $strict = true;
 
   public function __construct() {
     $args = func_get_args();

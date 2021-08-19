@@ -21,7 +21,7 @@ getTemplates($blazingClient);
 getUsage($blazingClient);
 
 function mergeRelativePath(BlazingClient $blazingClient, MergeParameters $mergeParam) {
-  $jsonFile = file_get_contents('P0-Template.json');
+  $jsonFile = file_get_contents('PO-Template.json');
   $relativePath = 'YOUR-RELATIVE-PATH';
 
   $data = $blazingClient->mergeWithGuid($jsonFile, 'output.pdf', $mergeParam, $relativePath);
@@ -29,7 +29,7 @@ function mergeRelativePath(BlazingClient $blazingClient, MergeParameters $mergeP
 }
 
 function mergeGuid(BlazingClient $blazingClient, MergeParameters $mergeParam) {
-  $jsonFile = file_get_contents('P0-Template.json');
+  $jsonFile = file_get_contents('PO-Template.json');
   $guid = 'YOUR_GUID';
 
   $data = $blazingClient->mergeWithGuid($jsonFile, 'output.pdf', $mergeParam, $guid);
@@ -37,38 +37,38 @@ function mergeGuid(BlazingClient $blazingClient, MergeParameters $mergeParam) {
 }
 
 function mergeSingle(BlazingClient $blazingClient, MergeParameters $mergeParam) {
-  $jsonFile = file_get_contents('P0-Template.json');
+  $jsonFile = file_get_contents('PO-Template.json');
   $streamFactory = Psr17FactoryDiscovery::findStreamFactory();
 
-  $content = $streamFactory->createStreamFromFile('P0-Template.docx', 'r');
-  $template = new FormFile('P0-Template.docx', $content);
+  $content = $streamFactory->createStreamFromFile('PO-Template.docx', 'r');
+  $template = new FormFile('PO-Template.docx', $content);
 
   $data = $blazingClient->mergeWithFile($jsonFile, 'output.pdf', $mergeParam, $template);
   var_dump($data);
 }
 
 function mergeSingleXml(BlazingClient $blazingClient, MergeParameters $mergeParam) {
-  $xmlFile = file_get_contents('P0-Template.xml');
+  $xmlFile = file_get_contents('PO-Template.xml');
   $streamFactory = Psr17FactoryDiscovery::findStreamFactory();
 
   $mergeParam->dataSourceType = Constants::XML_TYPE;
 
-  $content = $streamFactory->createStreamFromFile('P0-Template.docx', 'r');
-  $template = new FormFile('P0-Template.docx', $content);
+  $content = $streamFactory->createStreamFromFile('PO-Template.docx', 'r');
+  $template = new FormFile('PO-Template.docx', $content);
 
   $data = $blazingClient->mergeWithFile($xmlFile, 'output.pdf', $mergeParam, $template);
   var_dump($data);
 }
 
 function mergeArray(BlazingClient $blazingClient, MergeParameters $mergeParam) {
-  $jsonFile = file_get_contents('P0-Template-2.json');
+  $jsonFile = file_get_contents('PO-Template-2.json');
   $streamFactory = Psr17FactoryDiscovery::findStreamFactory();
 
   $mergeParam->strict = true;
   $mergeParam->sequence = true;
 
-  $content = $streamFactory->createStreamFromFile('P0-Template-2.docx', 'r');
-  $template = new FormFile('P0-Template-2.docx', $content);
+  $content = $streamFactory->createStreamFromFile('PO-Template-2.docx', 'r');
+  $template = new FormFile('PO-Template-2.docx', $content);
 
   $data = $blazingClient->mergeWithFile($jsonFile, 'output.pdf', $mergeParam, $template);
   var_dump($data);
