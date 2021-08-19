@@ -1,0 +1,26 @@
+{
+    "name": "blazingdocs/blazingdocs-php",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "BlazingDocs\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php-http/client-common": "^2.4",
+        "php-http/multipart-stream-builder": "^1.2",
+        "phpdocumentor/reflection-docblock": "^5.2",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "symfony/property-access": "^5.3",
+        "symfony/property-info": "^5.3",
+        "symfony/serializer": "^5.3"
+    },
+    "require-dev": {
+        "php-http/curl-client": "^2.2",
+        "laminas/laminas-diactoros": "^2.6"
+    }
+}
