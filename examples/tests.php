@@ -61,14 +61,14 @@ function mergeSingleXml(BlazingClient $blazingClient, MergeParameters $mergePara
 }
 
 function mergeArray(BlazingClient $blazingClient, MergeParameters $mergeParam) {
-  $jsonFile = file_get_contents('PO-Template-2.json');
+  $jsonFile = file_get_contents('PO-Template-Array.json');
   $streamFactory = Psr17FactoryDiscovery::findStreamFactory();
 
   $mergeParam->strict = true;
   $mergeParam->sequence = true;
 
-  $content = $streamFactory->createStreamFromFile('PO-Template-2.docx', 'r');
-  $template = new FormFile('PO-Template-2.docx', $content);
+  $content = $streamFactory->createStreamFromFile('PO-Template-Array.docx', 'r');
+  $template = new FormFile('PO-Template-Array.docx', $content);
 
   $data = $blazingClient->mergeWithFile($jsonFile, 'output.pdf', $mergeParam, $template);
   var_dump($data);
