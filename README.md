@@ -41,7 +41,11 @@ $usage = $client->getUsage();
 
 ```php
 $client = new \BlazingDocs\BlazingClient('API-KEY');
+
 $parameters = new \BlazingDocs\Parameters\MergeParameters();
+$parameters->dataSourceType = \BlazingDocs\Utils\Constants::JSON_TYPE;  # data in json format
+$parameters->sequence = false;  # data is object
+$parameters->strict = true;  # keep json types
 
 $jsonFile = file_get_contents('PO-Template.json');
 $streamFactory = Psr17FactoryDiscovery::findStreamFactory();
